@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <!--    list view   -->
+    <record id="document_list_view" model="ir.ui.view">
+        <field name="name">my_library_document.list.view</field>
+        <field name="model">my_library.document</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="description"/>
+                <field name="company_id"/>
+            </tree>
+        </field>
+    </record>
+    <!--    form view   -->
+    <record id="document_form_view" model="ir.ui.view">
+        <field name="name">my_library_document.form.view</field>
+        <field name="model">my_library.document</field>
+        <field name="arch" type="xml">
+            <form>
+                <group>
+                    <group>
+                        <field name="name"/>
+                        <field name="description"/>
+                        <field name="company_id"/>
+                    </group>
+                </group>
+            </form>
+        </field>
+    </record>
+    <!-- window action-->
+    <record id="action_document" model="ir.actions.act_window">
+        <field name="name">Documents</field>
+        <field name="res_model">my_library.document</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    <!--  menu  -->
+    <menuitem id="document_root_menu" name="Documents"/>
+    <menuitem id="document_sub_menu" parent="document_root_menu" name="Document Editor"/>
+    <menuitem id="document_menu" action="action_document" parent="document_sub_menu"/>
+
+
+</odoo>
